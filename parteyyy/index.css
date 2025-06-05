@@ -1,0 +1,115 @@
+/* Reset and Base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+/* Envelope Container */
+#envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f9f3ee;
+  transition: opacity 1s ease;
+}
+
+.envelope {
+  position: relative;
+  width: 200px;
+  height: 120px;
+  background: #fff;
+  border: 2px solid #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.envelope .flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 60px solid black;
+  transform-origin: top;
+  animation: openFlap 2s ease forwards;
+}
+
+.envelope .letter {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  opacity: 0;
+  animation: revealLetter 2s ease 2s forwards;
+}
+
+@keyframes openFlap {
+  0% { transform: rotateX(0); }
+  100% { transform: rotateX(-120deg); }
+}
+
+@keyframes revealLetter {
+  to { opacity: 1; }
+}
+/* Tap Prompt */
+
+
+
+/* Landing Page */
+#landing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('champagne.jpg') no-repeat center center / cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 2s ease;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  backdrop-filter: brightness(0.7);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Text Styles */
+#landing h1 {
+  font-size: 8vw;
+  margin: 0 1rem 1rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+#landing p {
+  font-size: 4.5vw;
+  margin: 0 1rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+
+
+/* Desktop-Specific Fonts */
+@media (min-width: 768px) {
+  #landing h1 {
+    font-size: 3rem;
+  }
+
+  #landing p {
+    font-size: 1.5rem;
+  }
+
+  .tap-text {
+    font-size: 1rem;
+  }
+}
